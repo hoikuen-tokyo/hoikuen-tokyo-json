@@ -1,11 +1,29 @@
 {
-  "name": "hoikuty",
+  "name": "hoikuen-json",
   "version": "1.0.0",
-  "description": "Search for Hoikuen in Japan",
+  "description": "Collect Hokikuen Data in JSON",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\""
   },
-  "author": "",
-  "license": "ISC"
+  "author": "FUJI Goro",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/mocha": "^2.2.46",
+    "@types/node": "^8.5.7",
+    "@types/node-fetch": "^1.6.7",
+    "espower-typescript": "^8.1.2",
+    "mocha": "^4.1.0",
+    "power-assert": "^1.4.4",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "jaconv": "^1.0.1",
+    "node-fetch": "^1.7.3",
+    "pdf2json": "^1.1.7",
+    "pdfreader": "^0.2.4",
+    "source-map-support": "^0.5.0",
+    "xlsx": "^0.11.16"
+  }
 }
