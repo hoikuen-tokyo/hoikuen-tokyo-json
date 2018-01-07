@@ -33,16 +33,11 @@ function processSheet(sheet: xlsx.WorkSheet, source: string, kind: Kind, modifie
       const tell = jaconv.normalize(sheet[`L${i}`].w);
 
       results.push({
-        id ,
         name,
         postalCode,
         prefecture,
         address,
-        managementAgency,
-        openTime,
-        closeTime,
         capacity,
-        establishedDate,
         kind,
         tell,
         source,

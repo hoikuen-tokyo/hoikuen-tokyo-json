@@ -14,11 +14,6 @@ export type Kind = "認可" | "認証A型" | "認証B型" | "認可外" | "幼�
 
 export interface Hoikujo {
   /**
-   * 一意な識別子
-   */
-  id: string;
-
-  /**
    * 名前（一意とは限らない）
    */
   name: string;
@@ -44,36 +39,15 @@ export interface Hoikujo {
    */
   tell: string;
 
-
-  /**
-   * 経営主体
-   */
-  managementAgency: string;
-
-  /**
-   * 開所時間 (##:##)
-   */
-  openTime: string;
-
-  /**
-   * 閉所時間 (##.##)
-   */
-  closeTime: string;
-
   /**
    * 定員
    */
   capacity: number;
 
   /**
-   * 事業開始年月日 (yyyy-mm-dd)
-   */
-  establishedDate?: Date;
-
-  /**
    * 種別
    */
-  kind: Kind;
+  kind?: Kind;
 
   /**
    * データソース（URI）
