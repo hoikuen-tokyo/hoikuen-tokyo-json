@@ -59,7 +59,6 @@ export async function parsePdfToCsv(buffer: Buffer) {
         rowObjects[rowKey] = [];
       }
       const text = textBlocks.R.map((t) => decodeURIComponent(t.T)).join('');
-      console.log([textBlocks.y, rowKey, text]);
       rowObjects[rowKey].push(text);
 
       if (!rowKeys.includes(rowKey)) {

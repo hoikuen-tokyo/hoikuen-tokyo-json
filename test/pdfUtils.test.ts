@@ -20,7 +20,6 @@ describe("pdfUtils", () => {
     it("parses PDF to CSV-like data", async () => {
       const data = await parsePdfToCsv(buffer);
       assert(Array.isArray(data));
-      console.log(data);
     });
   });
 });

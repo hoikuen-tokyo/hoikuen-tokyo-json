@@ -12,12 +12,14 @@ const Prefecture = '東京都';
  *  As of 2017/10/1
  */
 const Source = "http://www.fukushihoken.metro.tokyo.jp/kiban/fukushi_shisetsu/shs_list/shisetsuitiran.html";
-const SourceExcel = "http://www.fukushihoken.metro.tokyo.jp/kiban/fukushi_shisetsu/shs_list/shisetsuitiran.files/201710-1-1.xls"
+const SourceExcel = "http://www.fukushihoken.metro.tokyo.jp/kiban/fukushi_shisetsu/shs_list/shisetsuitiran.files/201710-2-1.xls"
 
 export async function parseTokyoHoikujoData(sourceBuffer: Buffer): Promise<Array<Hoikujo>> {
   const book = xlsx.read(sourceBuffer);
 
-  console.assert(Object.values(book.Sheets).length === 1);
+  if (Object.values(book.Sheets).length !== 1) {
+    throw new Error(`Unexpected sheets: ${book.SheetNames}`);
+  }
   const sheet = Object.values(book.Sheets)[0];
 
   const modifiedDate = book.Props!.ModifiedDate;

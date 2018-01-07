@@ -1,13 +1,10 @@
-import { fetchTokyoNinshoHoikujoData } from "./tokyo.ninsho";
 import { Hoikujo } from './types';
-import { fetchTokyoMinatokuNinkaHoikujoData } from "./tokyo.minatoku.ninka";
-
-
+import { fetchTokyoHoikujoData } from "./tokyo";
 
 export async function run() {
   const promises = [
     //fetchTokyoNinshoHoikujoData(),
-    fetchTokyoMinatokuNinkaHoikujoData(),
+    fetchTokyoHoikujoData(),
   ];
 
   const nestedItems = await Promise.all(promises);
@@ -18,7 +15,7 @@ export async function run() {
     results = results.concat(items);
   }
 
-  console.log(results);
+  console.log(JSON.stringify(results, undefined, 2));
 }
 
 
