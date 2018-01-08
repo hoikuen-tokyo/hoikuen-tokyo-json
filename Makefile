@@ -1,9 +1,11 @@
 
-all: data/2017/tokyo.json
+all: data
 
 node_modules:
 	npm install
 
-data/2017/tokyo.json: node_modules
+data: node_modules
 	mkdir -p data/2017
-	npx ts-node src/batch.ts > $@
+	npx ts-node src/batch.ts > data/2017/tokyo.json
+
+.PHONY: data

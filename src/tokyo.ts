@@ -47,7 +47,6 @@ export async function parseTokyoHoikujoData(sourceBuffer: Buffer): Promise<Array
 
       items.push({
         name,
-        prefecture: Prefecture,
         address,
         postalCode,
         tell,
@@ -57,7 +56,6 @@ export async function parseTokyoHoikujoData(sourceBuffer: Buffer): Promise<Array
       });
     }
   }
-
 
   return items;
 }

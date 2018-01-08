@@ -12,6 +12,11 @@
  */
 export type Kind = "認可" | "認証A型" | "認証B型" | "認可外" | "幼稚園" | "認定こども園";
 
+export interface Position {
+  latitude: number;
+  longitude: number;
+}
+
 export interface Hoikujo {
   /**
    * 名前（一意とは限らない）
@@ -19,20 +24,19 @@ export interface Hoikujo {
   name: string;
 
   /**
-   * TODO: 郵便番号 (###-####)
+   * 郵便番号 (###-####)
    */
   postalCode?: string;
-
-  /**
-   * 都道府県名
-   */
-  prefecture: string;
 
   /**
    * 住所
    */
   address: string;
 
+  /**
+   * 位置情報（Geocoder APIを利用）
+   */
+  position: Position;
 
   /**
    * 電話番号

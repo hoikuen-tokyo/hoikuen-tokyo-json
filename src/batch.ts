@@ -1,5 +1,6 @@
 import { Hoikujo } from './types';
 import { fetchTokyoHoikujoData } from "./tokyo";
+import { injectLocation } from './geocoder';
 
 export async function run() {
   const promises = [
@@ -8,6 +9,7 @@ export async function run() {
   ];
 
   const nestedItems = await Promise.all(promises);
+
   // flatten
   let results: Array<Hoikujo> = [];
 
@@ -15,8 +17,8 @@ export async function run() {
     results = results.concat(items);
   }
 
-  console.log(JSON.stringify(results, undefined, 2));
+  const resultsWithLocation = await injectLocation(results);
+  console.log(JSON.stringify(resultsWithLocation, undefined, 2));
 }
-
 
 run();

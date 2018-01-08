@@ -20,10 +20,8 @@ function processSheet(sheet: xlsx.WorkSheet, source: string, kind: Kind, modifie
   for (let i = 1; i <= maxRow; i++) {
     const localId = sheet[`A${i}`];
     if (localId && localId.t === 'n') {
-      const id = `東京都/${kind}/${localId.w}`;
       const name = jaconv.normalize(sheet[`B${i}`].w);
       const postalCode = undefined; // TODO
-      const prefecture = '東京都';
       const address = jaconv.normalize(sheet[`C${i}`].w);
       const managementAgency = jaconv.normalize(sheet[`E${i}`].w);
       const openTime = timeStrFromExcelDate(sheet[`F${i}`].v);
@@ -35,7 +33,6 @@ function processSheet(sheet: xlsx.WorkSheet, source: string, kind: Kind, modifie
       results.push({
         name,
         postalCode,
-        prefecture,
         address,
         capacity,
         kind,
