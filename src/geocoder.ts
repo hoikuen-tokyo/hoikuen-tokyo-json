@@ -2,15 +2,6 @@ import * as GoogleMapsService from '@google/maps';
 
 import { Hoikujo, Position } from './types';
 
-function loadApiKey() {
-  const credentials = require('../credentials');
-  if (credentials.apiKey) {
-    return credentials.apiKey;
-  } else {
-    throw new Error("No apiKey exists in credentials");
-  }
-}
-
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -23,9 +14,10 @@ class BestEffortGeocoder {
 
   readonly client;
 
-  constructor(key: string) {
+  constructor(credentials: object) {
+    // https://github.com/googlemaps/google-maps-services-js
     this.client = GoogleMapsService.createClient({
-      key,
+      ...credentials,
       Promise,
     });
   }
@@ -63,15 +55,15 @@ class BestEffortGeocoder {
 }
 
 export async function injectLocation(items: Array<Hoikujo>): Promise<Array<Hoikujo>> {
-  let apiKey;
+  let credentials: object;
   try {
-    apiKey = loadApiKey();
+    credentials = require('../google-api-credentials');
   } catch (e) {
     console.error(`No credentials available: ${e}`);
     return items; // nothing to do
   }
 
-  const geocoder = new BestEffortGeocoder(apiKey);
+  const geocoder = new BestEffortGeocoder(credentials);
 
   const results: Array<Hoikujo> = [];
 
