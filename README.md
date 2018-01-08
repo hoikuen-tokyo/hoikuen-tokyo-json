@@ -31,13 +31,13 @@
 * 東京保育園マップ https://github.com/codefortokyo/tokyohoikuenmap
 * 保育所の公式データは統一されたフォーマットで提供してほしい http://gfx.hatenablog.com/entry/2018/01/07/104348
 
-## Primary Maintainer
+## Project Owner
 
 FUJI Goro (https://github.com/gfx)
 
 ## Copyright and License
 
-Copyright 2018 https://github.com/hoikuen-jp
+Copyright 2018 https://github.com/hoikuen-tokyo
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
