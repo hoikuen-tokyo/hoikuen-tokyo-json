@@ -15,7 +15,6 @@ describe("tokyo", () => {
 
       const item = results[0];
       assert(item.name);
-      assert(item.prefecture);
       assert(item.address);
       assert(item.capacity);
       assert(item.tell);

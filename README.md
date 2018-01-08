@@ -26,10 +26,33 @@
 * 施設等一覧 東京都福祉保健局 http://www.fukushihoken.metro.tokyo.jp/kiban/fukushi_shisetsu/shs_list/shisetsuitiran.html
 
 
-## See Also
+### See Also
 
 * 東京保育園マップ https://github.com/codefortokyo/tokyohoikuenmap
 * 保育所の公式データは統一されたフォーマットで提供してほしい http://gfx.hatenablog.com/entry/2018/01/07/104348
+
+## Google API Credentials
+
+位置情報（latitude, longitude）を得るためにGoogle APIのcredentialsが必要です。
+
+`google-api-credentials.json` というファイルを作り、次の形式で認証情報を保存してください。
+
+```json
+{
+  "key": "..."
+}
+```
+
+or
+
+```json
+{
+  "clientId": "...",
+  "clientSecret": "..."
+}
+```
+
+See https://github.com/googlemaps/google-maps-services-js for details.
 
 ## Project Owner
 

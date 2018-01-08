@@ -19,6 +19,7 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
+    "@google/maps": "^0.4.5",
     "jaconv": "^1.0.1",
     "node-fetch": "^1.7.3",
     "pdf2json": "^1.1.7",
